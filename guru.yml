@@ -1,0 +1,12 @@
+---
+- hosts: local
+  user: local
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: installing multiple tooles
+      action: yum name'{{item}}' state=present
+      with_items:
+        - maven
+        - tree
